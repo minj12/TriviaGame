@@ -2,7 +2,6 @@ body {
 	background: url("../images/earthbeta2.jpg");
 	background-repeat: no-repeat;
     background-size: 120%;
-
 }
 
 button {
@@ -28,6 +27,11 @@ button:hover {
 img {
 	height: 400px;
 	width: auto;
+}
+.question {
+	background-color: blueviolet;
+	
+	
 }
 
 h1, h2, h3, .question {

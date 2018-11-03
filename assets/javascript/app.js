@@ -1,3 +1,4 @@
+//Variable Timer function
 $(document).ready(function() {
 	var index = 0;
 	var countdownTimer = {
@@ -54,7 +55,7 @@ What Does min stand for ?
 	c.	United Kingdom
 	d.	Japan
 4.	What is the world's longest river?
-	a.	 Amazon.
+	a.	 Amazon River
 	b.	Des Planes River
 	c.	Mississippi River
 	d.	All is incorrect
@@ -69,15 +70,16 @@ What Does min stand for ?
 	c.	India
 	d.	China
 7.	What is the longest mountain range in planet “Earth”?
-	a.	Andes
+	a.	Andes Mountains
 	b.	Rocky Mountains
 	c.	Himalayas Mountains
-	d.	Transatlantic
+	d.	Transatlantic Mountains
 
 */
+//** Number of   */
 var correct = 0;
 var wrong = 0;
-// ** following "q" variables is "S" 
+// ** The following "q" variables is "trivia questions" and the questions is listed 
 var q1 = {
 	question : 'Initiation Question: What does "min" stand for?',
 	possibleAnswers : ['A. The name of the creator',
@@ -85,7 +87,7 @@ var q1 = {
 				 'C. "Min"',
 				 'D.  All the following choices are correct'],
 	flags : [false, false, false, true],
-	//Boolean above confirms that the 4th option is Correct. Therfore "D" is "true".
+	//Boolean above confirms that the 4th option is correct. Therfore "D" is "true".
 	answer : 'D. All the following choices are correct'
 };
 
@@ -96,7 +98,7 @@ var q2 = {
 				 'C. Poland',
 				 'D. Pennsylvania'],
 	flags : [false, false, false, true],
-	//Boolean above confirms that the 4th option is Correct. Therfore "D" is "true".
+	//Boolean above confirms that the 4th option is correct. Therfore "D" is "true".
 	answer : 'D. Pennsylvania'
 };
 
@@ -107,7 +109,7 @@ var q3 = {
 				 'C. United Kingdom',
 				 'D. Japan'],
 	flags : [false, true, false, false],
-	//Boolean above confirms that the 4th option is Correct. Therfore "D" is "true".
+	//Boolean above confirms that the 2nd option is correct. Therfore "B" is "true".
 	answer : 'B. Greenland'
 };
 
@@ -115,9 +117,10 @@ var q4 = {
 	question : 'What is the world\'s longest river?',
 	possibleAnswers : ['A. Amazon River',
 				 'B. Des Planes River',
-				 'C. Mississippi',
+				 'C. Mississippi River',
 				 'D. Nile River'],
 	flags : [true, false, false, false],
+	//Boolean above confirms that the 1st option is correct. Therfore "A" is "true".
 	answer : 'A. Amazon River'
 };
 
@@ -128,6 +131,7 @@ var q5 = {
 				 'C. Indian Ocean',
 				 'D. Southern Ocean'],
 	flags : [false, true, false, false],
+	//Boolean above confirms that the 1st option is correct. Therfore "B" is "true".
 	answer : 'B. Pacific Ocean'
 };
 
@@ -138,6 +142,7 @@ var q6 = {
 				 'C. India',
 				 'D. China'],
 	flags : [false, false, false, true],
+	////Boolean above confirms that the 4th option is correct. Therfore "D" is "true".
 	answer : 'D. China'
 };
 
@@ -151,36 +156,7 @@ var q7 = {
 	answer : 'A. Andes Mountains'
 };
 
-var q8 = {
-	question : 'Which Walt Disney World location opened on the same day as the Disney-MGM Studios theme park on May 1, 1989?',
-	possibleAnswers : ['A. Typhoon Lagoon',
-				 'B. Pleasure Island',
-				 'C. Both A & B',
-				 'D. None of the above'],
-	flags : [false, true, false, false],
-	answer : 'B. Pleasure Island'
-};
-
-var q9 = {
-	question : 'Which of the following films is NOT part of the Walt Disney Studios Silly Symphonies?',
-	possibleAnswers : ['A. The Night Before Christmas',
-				 'B. Three Little Pigs',
-				 'C. The Old Mill',
-				 'D. The Gallopin\' Gaucho'],
-	flags : [false, false, false, true],
-	answer : 'D. The Gallopin\' Gaucho'
-};
-
-var q10 = {
-	question : 'Which wartime activity did the Walt Disney Studios partake in to support the American war effort?',
-	possibleAnswers : ['A. Recycling used film footage',
-				  'B. Designing US Army & US Navy insignia',
-				  'C. Hosted a Studio Victory Garden where employees grew food for their families',
-				  'D. Forced employees to carpool by closing parking lots to non-carpool cars'],
-	flags : [false, true, false, false],
-	answer : 'B. Designing US Army & US Navy insignia'
-}
-
+// Varriable questions array is 
 var questionArray = [q1, q2, q3, q4, q5, q6, q7];
 
 function loadQuestion(questionSelection) {
@@ -199,7 +175,8 @@ function loadQuestion(questionSelection) {
 //	index = index++;
 //	console.log(index);
 //}
-// Function for timer
+
+// Nest function for timer to start after clicking 
 function setup() {
 	index = 0;
 	$('.question').append('<button id="startButton">Start</button>');
