@@ -5,7 +5,7 @@ $(document).ready(function() {
 		time : 30,
 		reset: function() {
 			this.time = 30;
-			$('.timer').html('<h3>' + this.time + ' seconds remaining</h3>');
+			$('.timer').html('<h2>' + this.time + ' seconds remaining</h2>');//Ids timer displayed with <h2> size text
 		},
 		start: function() {
 			counter = setInterval(countdownTimer.count, 1000);	
@@ -18,7 +18,7 @@ $(document).ready(function() {
 				console.log(countdownTimer.time);
 //				$('.timer').html(countdownTimer.time);
 			if (countdownTimer.time >= 0) {
-				$('.timer').html('<h3>' + countdownTimer.time + ' seconds remaining</h3>');
+				$('.timer').html('<h2>' + countdownTimer.time + ' seconds remaining</h2>');
 			}
 			else {
 				index++;
@@ -76,10 +76,10 @@ What Does min stand for ?
 	d.	Transatlantic Mountains
 
 */
-//** Number of   */
+//** variables for player correct and wrong answers  */
 var correct = 0;
 var wrong = 0;
-// ** The following "q" variables is "trivia questions" and the questions is listed 
+// ** The following "q" variable array is "trivia questions" listed in order player faces them
 var q1 = {
 	question : 'Initiation Question: What does "min" stand for?',
 	possibleAnswers : ['A. The name of the creator',
@@ -142,7 +142,7 @@ var q6 = {
 				 'C. India',
 				 'D. China'],
 	flags : [false, false, false, true],
-	////Boolean above confirms that the 4th option is correct. Therfore "D" is "true".
+	//Boolean above confirms that the 4th option is correct. Therfore "D" is "true".
 	answer : 'D. China'
 };
 
@@ -153,10 +153,11 @@ var q7 = {
 				 'C. Himalayas Mountains',
 				 'D. Transatlantic Mountains'],
 	flags : [true, false, false, false],
+	//Boolean above confirms that the 1st option is correct. Therfore "A" is "true".
 	answer : 'A. Andes Mountains'
 };
 
-// Varriable questions array is 
+// Varriable questions array is is the questions diplayed to the user
 var questionArray = [q1, q2, q3, q4, q5, q6, q7];
 
 function loadQuestion(questionSelection) {
@@ -176,7 +177,7 @@ function loadQuestion(questionSelection) {
 //	console.log(index);
 //}
 
-// Nest function for timer to start after clicking 
+// Nest function for timer to start after player clicks start button 
 function setup() {
 	index = 0;
 	$('.question').append('<button id="startButton">Start</button>');
@@ -189,7 +190,7 @@ function setup() {
 
 function getAnswer() {
 
-//  nextQuestion();
+//  nextQuestion();//For loading each question with
 	$('.answerchoice').on('click', function() {
 	  console.log('alert', index);
 		index++;
@@ -203,22 +204,23 @@ function getAnswer() {
 	})
 }
 
+//Function is is triggered when player presses correct answer. Player gets the alert that they are correct.
 function answerCorrect() {
 	correct++;
 	alert("Correct!");
 	console.log("correct");
 }
-
+//Function is is triggered when player presses wrong answer. Player gets the alert that they are wrong.
 function answerWrong() {
 	wrong++;
 	alert("Incorrect!");
 	console.log("wrong");
 }
-
+//Function and display Results
 function showScore() {
 	$('.question').empty();
-	$('.question').append("<h2><p>" + correct + " correct</p></h2>");
-	$('.question').append("<h2><p>" + wrong + " incorrect</p></h2>");
+	$('.question').append("<h1><p>" + correct + " correct</p></h1>");
+	$('.question').append("<h1><p>" + wrong + " incorrect</p></h1>");
 	countdownTimer.stop();
 	$('.timer').empty();
 
@@ -245,7 +247,7 @@ function showScore() {
 //	});
 //	$('#startButton').click(countdownTimer.start);
 
-//}
+//} //If-Else  setup function for what happens when player picks an answer and ai gradeing
 setup();
 $('.answerchoice').on('click', function() {
  console.log($(this));
@@ -278,7 +280,7 @@ if ((answerChosen == 'D') && (questionArray[index].flags[3] == true)) {
  } else if (answerChosen == 'D') {
  	answerWrong();
  }
-
+//A-D Answers buttons
  $(".question").text('');
  $("#buttonA").text('');
  $("#buttonB").text('');
